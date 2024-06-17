@@ -12,10 +12,17 @@ const path = require('path');
 const cors = require('cors');
 const { type } = require('os');
 
+const corsOptions = {
+  origin: 'https://trendy-cart-admin.vercel.app',
+  optionsSuccessStatus: 200
+};
+
+
+
 // Whatever request we get will be parsed through Json format
 app.use(express.json());
 // To connect Frontend and backend using port no.
-app.use(cors());
+app.use(cors(corsOptions));
 
 
 // Data Base Connection with Mongo DB
@@ -47,7 +54,7 @@ app.use('/images', express.static('upload/images'))
 
   // Connection String
 
-app.post("/upload", upload.single('product'), (req, res) => {
+app.post("/upload",cors(corsOptions), upload.single('product'), (req, res) => {
     res.json({
         success: 1,
         image_url: `https://trendy-cart-backend.vercel.app:${PORT}/images/${req.file.filename}`
