@@ -43,9 +43,9 @@ const LoginSignup = () => {
   }
   const signup = async()=>{
     console.log("Signup Function Executed",formData);
-
     let responseData;
-
+     
+                  //Connection String
     await fetch('https://trendy-cart-backend.vercel.app/signup',{
         method:'POST',
         headers:{
