@@ -45,10 +45,12 @@ const upload = multer({ storage: storage })
 // Creating Upload Endpoint for images
 app.use('/images', express.static('upload/images'))
 
+  // Connection String
+
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
         success: 1,
-        image_url: `http://localhost:${PORT}/images/${req.file.filename}`
+        image_url: `https://trendy-cart-backend.vercel.app:${PORT}/images/${req.file.filename}`
     })
 })
 
