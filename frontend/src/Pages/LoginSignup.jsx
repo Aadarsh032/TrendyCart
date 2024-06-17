@@ -19,7 +19,8 @@ const LoginSignup = () => {
     console.log("Login Function Executed",formData);
 
     let responseData;
-    await fetch('http://localhost:4000/login',{
+         //Connection String
+    await fetch('https://trendy-cart-backend.vercel.app/login',{
         method:'POST',
         headers:{
           Accept:'application/form-data',
@@ -45,7 +46,7 @@ const LoginSignup = () => {
 
     let responseData;
 
-    await fetch('http://localhost:4000/signup',{
+    await fetch('https://trendy-cart-backend.vercel.app/signup',{
         method:'POST',
         headers:{
           Accept:'application/form-data',
