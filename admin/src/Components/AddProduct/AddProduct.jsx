@@ -37,7 +37,8 @@ const AddProduct = () => {
             headers: {
                 Accept: 'application/json',
             },
-            body: formData
+            body: formData,
+            credentials: 'include',
         }).then((response) => response.json()).then((data) => {
             responseData = data;
         })
@@ -53,6 +54,7 @@ const AddProduct = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(product),
+                credentials: 'include',
             }).then((response) => response.json()).then((data) => {
 
                 data.success ? alert(`Product Added`) : alert("Failed");
