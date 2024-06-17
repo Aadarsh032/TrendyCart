@@ -14,6 +14,9 @@ const { type } = require('os');
 
 const corsOptions = {
   origin: 'https://trendy-cart-admin.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
   optionsSuccessStatus: 200
 };
 
@@ -40,7 +43,7 @@ app.get("/", (req, res) => {
 //Image Storage Engine
 
 const storage = multer.diskStorage({
-    destination: './upload/images',
+    destination: path.join(__dirname, 'upload/images'),
     filename: (req, file, cb) => {
         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
@@ -50,7 +53,7 @@ const upload = multer({ storage: storage })
 
 
 // Creating Upload Endpoint for images
-app.use('/images', express.static('upload/images'))
+app.use('/images', express.static(path.join(__dirname, 'upload/images')));
 
   // Connection String
 
