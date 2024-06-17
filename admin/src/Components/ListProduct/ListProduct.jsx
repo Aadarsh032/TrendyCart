@@ -8,14 +8,16 @@ const Listproduct = () => {
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch('http://localhost:4000/allproducts')
+         //Connection String
+    await fetch('https://trendy-cart-backend.vercel.app/allproducts')
       .then((response) => response.json())
       .then((data) => { setAllProducts(data) })
   }
 
 
   const remove_product = async (removeid,removename) => {
-    await fetch('http://localhost:4000/removeproduct', {
+              //Connection String
+    await fetch('https://trendy-cart-backend.vercel.app/removeproduct', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
