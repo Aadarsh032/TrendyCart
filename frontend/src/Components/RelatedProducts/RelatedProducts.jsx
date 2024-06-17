@@ -8,7 +8,8 @@ const RelatedProducts = () => {
   const [relatedProduct,setRealatedProducts] = useState([]);
 
   useEffect(()=>{
-     fetch('http://localhost:4000/relatedproducts')
+       //Connection String
+     fetch('https://trendy-cart-backend.vercel.app/relatedproducts')
      .then((response)=>response.json())
      .then((data)=>{setRealatedProducts(data)})
   },[])
