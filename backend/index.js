@@ -13,7 +13,7 @@ const cors = require('cors');
 const { type } = require('os');
 
 const corsOptions = {
-  origin: 'https://trendy-cart-admin.vercel.app',
+  origin: ['https://trendy-cart-admin.vercel.app', 'https://trendy-cart.vercel.app'],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
