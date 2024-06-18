@@ -113,7 +113,7 @@ const AddProduct = () => {
             </div>
             <div className="addproduct-itemfield">
                 <label > URL
-                   // Logic to view the Image in the Upload Area Section
+{/*                     Logic to view the Image in the Upload Area Section */}
 {/*                     <img src={image ? URL.createObjectURL(image) : upload_area} alt="" className='addproduct-thumnail-img' /> */}
                 </label>
                 <input value={productDetails.image} onChange={changeHandler} type="text" name='image' placeholder='Type Here' id='file-input'  />
