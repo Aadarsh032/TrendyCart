@@ -39,29 +39,29 @@ app.get("/", (req, res) => {
 })
 
 
-//Image Storage Engine
+// //Image Storage Engine
 
-const storage = multer.diskStorage({
-    destination: './upload/images',
-    filename: (req, file, cb) => {
-        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
-    }
-})
+// const storage = multer.diskStorage({
+//     destination: './upload/images',
+//     filename: (req, file, cb) => {
+//         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+//     }
+// })
 
-const upload = multer({ storage: storage })
+// const upload = multer({ storage: storage })
 
 
-// Creating Upload Endpoint for images
-app.use('/images', express.static('./upload/images'));
+// // Creating Upload Endpoint for images
+// app.use('/images', express.static('./upload/images'));
 
-  // Connection String
+//   // Connection String
 
-app.post("/upload",cors(corsOptions), upload.single('product'), (req, res) => {
-    res.json({
-        success: 1,
-        image_url: `https://trendy-cart-backend.vercel.app:${PORT}/images/${req.file.filename}`
-    })
-})
+// app.post("/upload",cors(corsOptions), upload.single('product'), (req, res) => {
+//     res.json({
+//         success: 1,
+//         image_url: `https://trendy-cart-backend.vercel.app:${PORT}/images/${req.file.filename}`
+//     })
+// })
 
 // Schema for Creating Products
 
@@ -108,41 +108,43 @@ const Product = mongoose.model("Product", {
     }
 })
 
-app.post('/addproduct', async (req, res) => {
+     //Api Creation for Adding a product
 
-    let products = await Product.find({});
-    let id;
-    if (products.length > 0) {
-        // This logic is to get the id which is one increment of previous documents id.
-        let last_product_array = products.slice(-1);
-        let last_product = last_product_array[0];
-        id = last_product.id + 1;
-    }
-    else {
-        id = 1;
-    }
+// app.post('/addproduct', async (req, res) => {
 
-    const product = new Product({
-        id: id,
-        name: req.body.name,
-        image: req.body.image,
-        category: req.body.category,
-        new_price: req.body.new_price,
-        old_price: req.body.old_price,
-        description_short: req.body.description_short,
-        description_long: req.body.description_long,
-    })
+//     let products = await Product.find({});
+//     let id;
+//     if (products.length > 0) {
+//         // This logic is to get the id which is one increment of previous documents id.
+//         let last_product_array = products.slice(-1);
+//         let last_product = last_product_array[0];
+//         id = last_product.id + 1;
+//     }
+//     else {
+//         id = 1;
+//     }
 
-    console.log(product);
-    await product.save();
-    console.log("Product Details Saved")
-    res.json({
-        success: true,
-        name: req.body.name,
-    })
+//     const product = new Product({
+//         id: id,
+//         name: req.body.name,
+//         image: req.body.image,
+//         category: req.body.category,
+//         new_price: req.body.new_price,
+//         old_price: req.body.old_price,
+//         description_short: req.body.description_short,
+//         description_long: req.body.description_long,
+//     })
+
+//     console.log(product);
+//     await product.save();
+//     console.log("Product Details Saved")
+//     res.json({
+//         success: true,
+//         name: req.body.name,
+//     })
 
 
-})
+// })
 
 
 // Creating Api for Deleting the Products
