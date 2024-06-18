@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 //Image Storage Engine
 
 const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'upload/images'),
+    destination: './upload/images',
     filename: (req, file, cb) => {
         return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
     }
@@ -52,7 +52,7 @@ const upload = multer({ storage: storage })
 
 
 // Creating Upload Endpoint for images
-app.use('/images', express.static(path.join(__dirname, 'upload/images')));
+app.use('/images', express.static('./upload/images'));
 
   // Connection String
 
