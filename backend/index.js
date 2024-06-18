@@ -35,7 +35,6 @@ mongoose.connect('mongodb+srv://kumarn206:Fw05vulRIkfygRuK@cluster0.gataub6.mong
 // Api Creation
 
 app.get("/", (req, res) => {
-
     res.send("Express App is Running")
 })
 
