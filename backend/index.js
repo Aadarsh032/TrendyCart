@@ -76,7 +76,7 @@ const Product = mongoose.model("Product", {
     },
     image: {
         type: String,
-        
+        required: true,
     },
     category: {
         type: String,
@@ -110,41 +110,41 @@ const Product = mongoose.model("Product", {
 
      //Api Creation for Adding a product
 
-// app.post('/addproduct', async (req, res) => {
+app.post('/addproduct', async (req, res) => {
 
-//     let products = await Product.find({});
-//     let id;
-//     if (products.length > 0) {
-//         // This logic is to get the id which is one increment of previous documents id.
-//         let last_product_array = products.slice(-1);
-//         let last_product = last_product_array[0];
-//         id = last_product.id + 1;
-//     }
-//     else {
-//         id = 1;
-//     }
+    let products = await Product.find({});
+    let id;
+    if (products.length > 0) {
+        // This logic is to get the id which is one increment of previous documents id.
+        let last_product_array = products.slice(-1);
+        let last_product = last_product_array[0];
+        id = last_product.id + 1;
+    }
+    else {
+        id = 1;
+    }
 
-//     const product = new Product({
-//         id: id,
-//         name: req.body.name,
-//         image: req.body.image,
-//         category: req.body.category,
-//         new_price: req.body.new_price,
-//         old_price: req.body.old_price,
-//         description_short: req.body.description_short,
-//         description_long: req.body.description_long,
-//     })
+    const product = new Product({
+        id: id,
+        name: req.body.name,
+        image: req.body.image,
+        category: req.body.category,
+        new_price: req.body.new_price,
+        old_price: req.body.old_price,
+        description_short: req.body.description_short,
+        description_long: req.body.description_long,
+    })
 
-//     console.log(product);
-//     await product.save();
-//     console.log("Product Details Saved")
-//     res.json({
-//         success: true,
-//         name: req.body.name,
-//     })
+    console.log(product);
+    await product.save();
+    console.log("Product Details Saved")
+    res.json({
+        success: true,
+        name: req.body.name,
+    })
 
 
-// })
+})
 
 
 // Creating Api for Deleting the Products
