@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ShopContextProvider from './Context/ShopContext';
+import Ibutton from './Ibutton/Ibutton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <ShopContextProvider>
      <App />
+     <Ibutton/>
      </ShopContextProvider>
   
 
