@@ -5,7 +5,7 @@ const Ibutton = () => {
   return (
    
 
-    <a href="https://aadarsh-portfolio-web.vercel.app/" target="_blank"> <div id="ibutton">
+    <a href="" target="_blank"> <div id="ibutton">
       <p id="insideibutton">
         <i>i</i>    
       </p>
@@ -15,3 +15,4 @@ const Ibutton = () => {
 
 
 export default Ibutton
+
